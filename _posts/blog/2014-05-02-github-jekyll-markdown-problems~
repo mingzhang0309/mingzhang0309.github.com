@@ -1,0 +1,44 @@
+---
+layout: post
+title: 使用jekyll+github搭建博客
+description: 在ubuntu12.0.4上利用jekyll和github搭建博客遇到的一些问题
+category: blog
+---
+
+突然间心血来潮，觉得一个做技术的没有自己的博客记录一些东西实在是说不过去，于是在网上搜寻搭博客的方法，最终选择了github+jekyll的形式，自己只做后端开发，也懒得去研究前端的一些东西，所以极大发挥了拿来主义，直接clone了[BeiYuu]的模板过来暂时先用着吧，以后有机会在重写了。这里主要记录一些在搭建博客过程中用到的一些资料以及碰到的问题，免得以后再范同样的错误。
+
+## 搭建博客
+首先到[github]主页上去注册帐号，注册宜早不然心仪的就被别人给注册走了。利用github搭建博客的过程也比较简单，具体流程可以参见[1],[2]。在这个过程中有个问题要注意的就是如果guthub上的邮箱没认证的话生成页面是不能成功的。基本就一下四条命令：
+{% highlight ruby linenos %}
+$ git clone https://github.com/****/****.git USERNAME.github.com
+$ cd USERNAME.github.com
+$ git remote set-url origin git@github.com:USERNAME/USERNAME.github.com.git
+$ git push origin master
+{% endhighlight %}
+
+## 资料记录
+目前为止使用问题还不多，唯一一个没有解决的问题就是jekyll不支持分类和标签下面的分页，这个非常蛋疼，相信jekyll以后会支持的吧。
+其他的一些资料：
+[掌心博客主题]，[Vilot] 里面的主题还比较美观，也可以尝试(只是没分类，感觉略微不爽)。
+[jekyll官方文档] 最快速度了解，关键是中文的。
+[Markdown] Markdown入门教程。
+[数学公式编辑] 暂时保存着，以后要用公式再来改。
+[git入门教程] 一个简单的git入门教程。
+[git常用命令]
+[git无法推送] 其实善用 'git status' 就没问题了。
+
+
+[zhangming]:    http://mingzhang0309.github.com  "zhangming"
+[BeiYuu]:    http://beiyuu.com  "BeiYuu"
+[Github]:   http://github.com "Github"
+[1]    http://beiyuu.com/github-pages/
+[2]   http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html
+[掌心博客主题]    http://www.zhanxin.info/jekyll/
+[Vilot]    http://pizn.github.io/index.html
+[jekyll]    http://jekyllcn.com/docs/posts/
+[Markdown]    http://jianshu.io/p/q81RER
+[数学公式编辑]    http://cyukang.com/2013/03/03/try-mathjax.html
+[git入门教程]    http://blog.csdn.net/jackystudio/article/details/12271839
+[git常用命令]    http://blog.csdn.net/ithomer/article/details/7529022
+[git无法推送]    http://blog.1994.mobi/2014/01/23/solvegithubpush/
+

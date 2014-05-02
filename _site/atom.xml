@@ -4,7 +4,7 @@
    <title>mingzhang.com</title>
    <link href="http://mingzhang0309.github.com/atom.xml" rel="self" type="application/atom+xml"/>
    <link href="http://mingzhang0309.github.com" rel="alternate" type="text/html" />
-   <updated>2014-05-02T10:24:21+08:00</updated>
+   <updated>2014-05-02T21:07:04+08:00</updated>
    <id>http://mingzhang0309.github.com</id>
    <author>
      <name></name>
@@ -13,17 +13,45 @@
 
    
    <entry>
-     <title>这是我的第一篇博客？</title>
-     <link href="http://beiyuu.com/test"/>
+     <title>使用jekyll+github搭建博客</title>
+     <link href="http://beiyuu.com/github-jekyll-markdown-problems"/>
      <updated>2014-05-02T00:00:00+08:00</updated>
-     <id>http://beiyuu.com/test</id>
-     <content type="html">&lt;p&gt;我来写第一个hello world吧！&lt;/p&gt;
+     <id>http://beiyuu.com/github-jekyll-markdown-problems</id>
+     <content type="html">&lt;p&gt;突然间心血来潮，觉得一个做技术的没有自己的博客记录一些东西实在是说不过去，于是在网上搜寻搭博客的方法，最终选择了github+jekyll的形式，自己只做后端开发，也懒得去研究前端的一些东西，所以极大发挥了拿来主义，直接clone了&lt;a href=&quot;http://beiyuu.com&quot; title=&quot;BeiYuu&quot;&gt;BeiYuu&lt;/a&gt;的模板过来暂时先用着吧，以后有机会在重写了。这里主要记录一些在搭建博客过程中用到的一些资料以及碰到的问题，免得以后再范同样的错误。&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Hello World!&amp;quot;&lt;/span&gt;
+&lt;h2&gt;搭建博客&lt;/h2&gt;
+
+&lt;p&gt;首先到&lt;a href=&quot;http://github.com&quot; title=&quot;Github&quot;&gt;github&lt;/a&gt;主页上去注册帐号，注册宜早不然心仪的就被别人给注册走了。利用github搭建博客的过程也比较简单，具体流程可以参见&lt;a href=&quot;http://beiyuu.com/github-pages/&quot; title=&quot;1&quot;&gt;1&lt;/a&gt;,&lt;a href=&quot;http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html&quot;&gt;2&lt;/a&gt;。在这个过程中有个问题要注意的就是如果guthub上的邮箱没认证的话生成页面是不能成功的。基本就一下四条命令：&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;lineno&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;clone&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;github&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/****/****.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;USERNAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;github&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;USERNAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;github&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;remote&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;origin&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;git&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@github&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:USERNAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;USERNAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;github&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;git&lt;/span&gt;
+&lt;span class=&quot;lineno&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;push&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;origin&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;master&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;h2&gt;资料记录&lt;/h2&gt;
 
+&lt;p&gt;目前为止使用问题还不多，唯一一个没有解决的问题就是jekyll不支持分类和标签下面的分页，这个非常蛋疼，相信jekyll以后会支持的吧。
+其他的一些资料：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.zhanxin.info/jekyll/&quot;&gt;掌心博客主题&lt;/a&gt;，&lt;a href=&quot;http://pizn.github.io/index.html&quot; title=&quot;Vilot&quot;&gt;Vilot&lt;/a&gt; 里面的主题还比较美观，也可以尝试(只是没分类，感觉略微不爽)。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://jekyllcn.com/docs/posts/&quot;&gt;jekyll官方文档&lt;/a&gt; 最快速度了解，关键是中文的。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://jianshu.io/p/q81RER&quot;&gt;Markdown&lt;/a&gt; Markdown入门教程。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://cyukang.com/2013/03/03/try-mathjax.html&quot;&gt;数学公式编辑&lt;/a&gt; 暂时保存着，以后要用公式再来改。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/jackystudio/article/details/12271839&quot;&gt;git入门教程&lt;/a&gt; 一个简单的git入门教程。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://blog.csdn.net/ithomer/article/details/7529022&quot;&gt;git常用命令&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://blog.1994.mobi/2014/01/23/solvegithubpush/&quot;&gt;git无法推送&lt;/a&gt; 其实善用 &lt;code&gt;git status&lt;/code&gt; 就没问题了。&lt;/p&gt;
+
+&lt;h2&gt;结语&lt;/h2&gt;
+
+&lt;p&gt;就用本文拉起技术学习的一波节奏吧！&lt;/p&gt;
 </content>
    </entry>
    

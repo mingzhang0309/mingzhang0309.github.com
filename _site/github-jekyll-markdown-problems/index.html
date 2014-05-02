@@ -5,7 +5,7 @@
     * Author:         BeiYuu
     -->
     <meta charset="utf-8" />
-    <title>这是我的第一篇博客？ | mingzhang.com</title>
+    <title>使用jekyll+github搭建博客 | mingzhang.com</title>
     <meta name="author" content="mingzhang" />
     <meta name="renderer" content="webkit">
     <meta name="description" content="ming's Blog" />
@@ -42,15 +42,43 @@
 
 <div id="content">
     <div class="entry">
-        <h1 class="entry-title"><a href="/test" title="这是我的第一篇博客？">这是我的第一篇博客？</a></h1>
+        <h1 class="entry-title"><a href="/github-jekyll-markdown-problems" title="使用jekyll+github搭建博客">使用jekyll+github搭建博客</a></h1>
         <p class="entry-date">2014-05-02</p>
-        <p>我来写第一个hello world吧！</p>
+        <p>突然间心血来潮，觉得一个做技术的没有自己的博客记录一些东西实在是说不过去，于是在网上搜寻搭博客的方法，最终选择了github+jekyll的形式，自己只做后端开发，也懒得去研究前端的一些东西，所以极大发挥了拿来主义，直接clone了<a href="http://beiyuu.com" title="BeiYuu">BeiYuu</a>的模板过来暂时先用着吧，以后有机会在重写了。这里主要记录一些在搭建博客过程中用到的一些资料以及碰到的问题，免得以后再范同样的错误。</p>
 
-<div class="highlight"><pre><code class="python"><span class="k">print</span> <span class="s">&quot;Hello World!&quot;</span>
+<h2>搭建博客</h2>
+
+<p>首先到<a href="http://github.com" title="Github">github</a>主页上去注册帐号，注册宜早不然心仪的就被别人给注册走了。利用github搭建博客的过程也比较简单，具体流程可以参见<a href="http://beiyuu.com/github-pages/" title="1">1</a>,<a href="http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html">2</a>。在这个过程中有个问题要注意的就是如果guthub上的邮箱没认证的话生成页面是不能成功的。基本就一下四条命令：</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="lineno">1</span> <span class="err">$</span> <span class="n">git</span> <span class="nb">clone</span> <span class="ss">https</span><span class="p">:</span><span class="sr">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/****/****.</span><span class="n">git</span> <span class="no">USERNAME</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">com</span>
+<span class="lineno">2</span> <span class="err">$</span> <span class="n">cd</span> <span class="no">USERNAME</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">com</span>
+<span class="lineno">3</span> <span class="err">$</span> <span class="n">git</span> <span class="n">remote</span> <span class="n">set</span><span class="o">-</span><span class="n">url</span> <span class="n">origin</span> <span class="n">git</span><span class="vi">@github</span><span class="o">.</span><span class="n">com</span><span class="ss">:USERNAME</span><span class="o">/</span><span class="no">USERNAME</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">.</span><span class="n">git</span>
+<span class="lineno">4</span> <span class="err">$</span> <span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">master</span>
 </code></pre></div>
 
 
+<h2>资料记录</h2>
 
+<p>目前为止使用问题还不多，唯一一个没有解决的问题就是jekyll不支持分类和标签下面的分页，这个非常蛋疼，相信jekyll以后会支持的吧。
+其他的一些资料：</p>
+
+<p><a href="http://www.zhanxin.info/jekyll/">掌心博客主题</a>，<a href="http://pizn.github.io/index.html" title="Vilot">Vilot</a> 里面的主题还比较美观，也可以尝试(只是没分类，感觉略微不爽)。</p>
+
+<p><a href="http://jekyllcn.com/docs/posts/">jekyll官方文档</a> 最快速度了解，关键是中文的。</p>
+
+<p><a href="http://jianshu.io/p/q81RER">Markdown</a> Markdown入门教程。</p>
+
+<p><a href="http://cyukang.com/2013/03/03/try-mathjax.html">数学公式编辑</a> 暂时保存着，以后要用公式再来改。</p>
+
+<p><a href="http://blog.csdn.net/jackystudio/article/details/12271839">git入门教程</a> 一个简单的git入门教程。</p>
+
+<p><a href="http://blog.csdn.net/ithomer/article/details/7529022">git常用命令</a></p>
+
+<p><a href="http://blog.1994.mobi/2014/01/23/solvegithubpush/">git无法推送</a> 其实善用 <code>git status</code> 就没问题了。</p>
+
+<h2>结语</h2>
+
+<p>就用本文拉起技术学习的一波节奏吧！</p>
 
 
         <div id="disqus_container">
@@ -73,8 +101,8 @@
                   for( var p in param ){
                     temp.push(p + '=' + encodeURIComponent( param[p] || '' ) )
                   }
-                  document.write('<iframe allowTransparency="true" frameborder="0" scrolling="no" src="http://hits.sinajs.cn/A1/weiboshare.html?' + temp.join('&') + '" width="'+ _w+'" height="'+_h+'"></iframe>')
-                })()
+                 // document.write('<iframe allowTransparency="true" frameborder="0" scrolling="no" src="http://hits.sinajs.cn/A1/weiboshare.html?' + temp.join('&') + '" width="'+ _w+'" height="'+_h+'"></iframe>')
+               // })()
                 </script>
             </div>
             <a href="#" class="comment" onclick="return false;">点击查看评论</a>
@@ -82,15 +110,16 @@
         </div>
     </div>
 
+<!--
     <div class="sidenav">
         <iframe width="100%" height="75" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=75&fansRow=2&ptype=1&speed=0&skin=5&isTitle=0&noborder=0&isWeibo=0&isFans=0&uid=1855270953&verifier=375b89d6&dpc=1"></iframe>
     </div>
-
+-->
     <div class="sidenav">
         <h2>Blog</h2>
         <ul class="artical-list">
         
-            <li><a href="/test">这是我的第一篇博客？</a></li>
+            <li><a href="/github-jekyll-markdown-problems">使用jekyll+github搭建博客</a></li>
         
         </ul>
 
