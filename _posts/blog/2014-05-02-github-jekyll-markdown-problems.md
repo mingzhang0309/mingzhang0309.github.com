@@ -10,7 +10,7 @@ category: blog
 
 首先到[github]主页上去注册帐号，注册宜早不然心仪的就被别人给注册走了。利用github搭建博客的过程也比较简单，具体流程可以参见[1],[2]。在这个过程中有个问题要注意的就是如果guthub上的邮箱没认证的话生成页面是不能成功的。基本就一下四条命令：
 
-{% highlight ruby linenos %}
+{% highlight ruby %}
 $ git clone https://github.com/****/****.git USERNAME.github.com
 $ cd USERNAME.github.com
 $ git remote set-url origin git@github.com:USERNAME/USERNAME.github.com.git
@@ -42,7 +42,7 @@ $ git push origin master
 
 [zhangming]: http://mingzhang0309.github.com "zhangming"
 [BeiYuu]: http://beiyuu.com "BeiYuu"
-[Github]: http://github.com "Github"
+[github]: http://github.com "github"
 [1]: http://beiyuu.com/github-pages/ "1"
 [2]: http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html
 [掌心博客主题]: http://www.zhanxin.info/jekyll/
