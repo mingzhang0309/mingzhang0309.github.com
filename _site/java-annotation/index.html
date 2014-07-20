@@ -89,7 +89,7 @@
 
 <h3>Author.java</h3>
 
-<div class="highlight"><pre><code class="java"><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">ming</span><span class="o">.</span><span class="na">annotation</span><span class="o">;</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">ming</span><span class="o">.</span><span class="na">annotation</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">java.lang.annotation.Documented</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.lang.annotation.ElementType</span><span class="o">;</span>
@@ -111,13 +111,12 @@
     <span class="n">String</span> <span class="nf">name</span><span class="o">();</span>
 
     <span class="n">String</span> <span class="nf">group</span><span class="o">();</span>
-<span class="o">}</span>
-</code></pre></div>
+<span class="o">}</span></code></pre></div>
 
 
 <h3>Description.java</h3>
 
-<div class="highlight"><pre><code class="java"><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">ming</span><span class="o">.</span><span class="na">annotation</span><span class="o">;</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">ming</span><span class="o">.</span><span class="na">annotation</span><span class="o">;</span>
 <span class="cm">/**</span>
 <span class="cm"> * </span>
 <span class="cm"> */</span>
@@ -136,26 +135,24 @@
 <span class="nd">@Documented</span>
 <span class="kd">public</span> <span class="nd">@interface</span> <span class="n">Description</span> <span class="o">{</span>
     <span class="n">String</span> <span class="nf">value</span><span class="o">();</span>
-<span class="o">}</span>
-</code></pre></div>
+<span class="o">}</span></code></pre></div>
 
 
 <h3>Utility.java</h3>
 
-<div class="highlight"><pre><code class="java"><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">ming</span><span class="o">.</span><span class="na">annotation</span><span class="o">;</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">ming</span><span class="o">.</span><span class="na">annotation</span><span class="o">;</span>
 <span class="nd">@Description</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&quot;这是一个有用的工具类&quot;</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Utility</span> <span class="o">{</span>
     <span class="nd">@Author</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;ming&quot;</span><span class="o">,</span> <span class="n">group</span> <span class="o">=</span> <span class="s">&quot;com.ming&quot;</span><span class="o">)</span>
     <span class="kd">public</span> <span class="n">String</span> <span class="nf">work</span><span class="o">()</span> <span class="o">{</span>
         <span class="k">return</span> <span class="s">&quot;work over!&quot;</span><span class="o">;</span>
     <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div>
+<span class="o">}</span></code></pre></div>
 
 
 <h3>AnalysisAnnotation.java</h3>
 
-<div class="highlight"><pre><code class="java"><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">ming</span><span class="o">.</span><span class="na">annotation</span><span class="o">;</span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">ming</span><span class="o">.</span><span class="na">annotation</span><span class="o">;</span>
 
 <span class="kn">import</span> <span class="nn">java.lang.reflect.Method</span><span class="o">;</span>
 
@@ -194,8 +191,7 @@
         <span class="o">}</span>
     <span class="o">}</span>
 
-<span class="o">}</span>
-</code></pre></div>
+<span class="o">}</span></code></pre></div>
 
 
 <h2>相关资料</h2>

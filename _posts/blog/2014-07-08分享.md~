@@ -1,0 +1,141 @@
+## 分享PPT
+今天给小组分享qunar的开发规范，同时对json解析器考题的代码进行了review，略微谈了下设计，PPT如下，大部分是实际操作演示。
+![1]/home/blog/mingzhang0309.github.com/images/1.png
+![2]/home/blog/mingzhang0309.github.com/images/2.png
+
+## 开发规范
+QUNAR的命名规范可以参照[qunar]中指定的开发规范
+包名： com.qunar.flight.projectname
+变量名,方法名：首单词首字母小写，其余首字大写，临时变量通常被取名为i，j，k，m和n，它们一般用于整型；c，d，e，它们一般用于字符型。
+类名:单词首字都大写
+代码排版：ctrl+alt+l(关闭QQ或者改QQ键)
+常量：类常量和ANSI常量的声明，应该全部大写，单词间用下划线隔开。(尽量避免ANSI常量，容易引起错误)
+tips：具体的实现方法以doXxxXxx 命名
+日志[日志]
+简单启用日志功能就三步
+###在maven中添加依赖包
+{% highlight ruby %}
+<properties>
+        <org.springframework.version>3.1.4.RELEASE</org.springframework.version>
+
+        <org.slf4j.version>1.7.5</org.slf4j.version>
+        <logback.version>1.0.13</logback.version>
+
+    </properties>
+
+    <dependencies>
+        <!-- junit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- logging -->
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${org.slf4j.version}</version>
+        </dependency>
+
+        <!--Java Commons Logging redirect to slf4j -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>${org.slf4j.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!--Apache log4j redirect to slf4j -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>log4j-over-slf4j</artifactId>
+            <version>${org.slf4j.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <!--Java Util Logging redirect to slf4j -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jul-to-slf4j</artifactId>
+            <version>${org.slf4j.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <!--将所有日志归一成 logback -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>${logback.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+
+    </dependencies>
+{% endhighlight %}
+
+### 添加logback.xml到项目的resource文件夹下
+{% highlight ruby %}
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- slf4j日志配置文件 -->
+<configuration debug="true" scan="true" scanPeriod="30 seconds">
+
+    <!-- 设置日志输出根目录 -->
+    <property name="log.dir" value="/home/work/Workspace/stephen/ParseJson/logs"/>
+
+    <property name="encoding" value="UTF-8"/>
+    <property name="normal-pattern"
+              value="%d{yyyy-MM-dd.HH:mm:ss} %-5level [%thread] %logger.%M:%L  %msg%n"/>
+    <property name="plain-pattern" value="%d{yyyy-MM-dd.HH:mm:ss} %msg%n"/>
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%.-5level|%d{yyyy-MM-dd HH:mm:ss}|%10.40logger{0}|%msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>jsonParse.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%.-5level|%d{yyyy-MM-dd HH:mm:ss}|%-40.40logger{0}|%msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILEERROR" class="ch.qos.logback.core.FileAppender">
+        <file>error.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%.-5level|%d{yyyy-MM-dd HH:mm:ss}|%-40.40logger{0}|%msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="FILE"/>
+    </root>
+    <root level="ERROE">
+        <appender-ref ref="FILEERROR"/>
+    </root>
+</configuration>
+{% endhighlight %}
+
+###代码中引用log对象，然后记录相应的log
+
+## Debug技能
+研发要学会打断点，单步跟踪执行基本能解决大部分的问题。
+
+## 单元测试
+咱们小组以后尽量多写单元测试，单元测试有助于我们将功能细化，做到单一职责，培养自己的设计感。当然最重要是加强代码的健壮性，避免出现
+模拟考试时某位同学有两个main函数的情况，虽然我真不是故意的。
+
+
+
+[zhangming]:    http://mingzhang0309.github.com  "zhangming"
+[qunar]:  http://fresh.qunar.com/pages/viewpage.action?pageId=1540192 "qunar"
+[日志]: wiki.corp.qunar.com/pages/viewpage.action?pageId=19355490 "日志"
